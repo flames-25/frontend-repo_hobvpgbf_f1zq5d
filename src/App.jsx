@@ -1,28 +1,19 @@
-import { useState } from 'react'
+import { Routes, Route, Link } from 'react-router-dom'
+import Home from './pages/Home'
+import Send from './pages/Send'
+import Activity from './pages/Activity'
+import Profile from './pages/Profile'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App(){
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="font-[Inter]">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/send" element={<Send />} />
+        <Route path="/activity" element={<Activity />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<div className="min-h-screen grid place-items-center"><div className="text-center"><h1 className="text-3xl font-semibold">PayLink</h1><p className="text-gray-500 mt-2">Fast. Secure. European.</p><Link className="text-blue-600 underline" to="/">Go Home</Link></div></div>} />
+      </Routes>
     </div>
   )
 }
-
-export default App
