@@ -27,8 +27,9 @@ export default function Home() {
   }, [token])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#00c6a7] to-[#0072ff] text-white relative">
-      <div className="absolute inset-x-0 top-0 h-[40vh]">
+    <div className="min-h-screen bg-gradient-to-br from-[#00c6a7] to-[#0072ff] text-white relative overflow-hidden">
+      {/* 3D Background centered */}
+      <div className="pointer-events-none absolute top-[-8vh] left-1/2 -translate-x-1/2 w-[120vw] max-w-[900px] h-[46vh]">
         <Spline scene="https://prod.spline.design/41MGRk-UDPKO-l6W/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
 
@@ -37,6 +38,7 @@ export default function Home() {
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.35, ease: 'easeOut' }}
           className="backdrop-blur-xl bg-white/20 border border-white/30 rounded-3xl p-5 shadow-2xl">
           <p className="text-sm text-white/80">Available balance</p>
           <h1 className="text-4xl font-bold mt-1">€{balance.toFixed(2)}</h1>
